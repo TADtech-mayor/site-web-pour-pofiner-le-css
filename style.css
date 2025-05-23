@@ -1,0 +1,330 @@
+/* envelever les styles de base du navigateur */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* declaration des variables pour ne pas les refaire chaque fois  */
+
+html{
+    --var-bg-color: #7743e9 ;
+    --var-secondary-color: #6e51cf ;
+    --var-text-color:  #fff;
+    --var-text-color-dark: #333;
+    --var-bg-light: #f0f4ff;
+    --var-bg-dark:  #d3c9f3;
+}
+
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--var-bg-light);
+    color: var(--var-text-color-dark);
+}
+
+header{
+     height: 4rem;   /*  &rem = 16px */
+     background-color: white;
+     padding: 0 2rem;
+     text-align: center;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+     /* pour que la barre de nav reste en haut quand on se deplace sur le site  */
+
+     position: sticky;
+     top: 0; /*   bottom: 0; element reste en bas  */
+
+}
+header nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+
+    /* espace entre les elements */
+    gap: 1rem;
+
+}
+
+nav ul li a {
+     text-decoration: none; /* enleve la barre en dessous du lien  */
+     color: var(--var-text-color-dark);
+     font-weight: 500;
+
+}
+
+nav ul li a:hover {
+    color: var(--var-secondary-color)
+}
+
+header button{
+    background-color: var(--var-secondary-color);
+    color: var(--var-text-color);
+    border: none;
+    padding: 0.7rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;   /*  quans la souris sera sur ca ce qu'il faut faire  */
+    transition: 0.3s;
+}
+
+header button:hover{
+  background-color: var(--var-text-color);
+  color: var(--var-text-color-dark);
+  border: 1px solid #6e51cf;
+}
+
+/* main  */
+
+main{
+    padding: 2rem;
+
+}
+
+/*main  section hero  */
+
+#hero{
+    padding: 5px;
+    width: 100%;
+    height: 70vh;
+    border-radius: 5px;
+    /* border: 1px solid black; */
+     background: linear-gradient(   /*   permet de un melange de plusieurs et leurs proportion */
+        90deg,
+        var(--var-bg-color) 15%,
+        var(--var-secondary-color) 100%
+    );
+
+ /* faire arranger les div */
+     display: flex;
+     justify-content: center;
+     align-items: center;
+};
+
+.gauche h1{
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--var-text-color);
+};
+
+.gauche p{ 
+    font-size: clamp(1rem, 2vw, 1rem); /*  permet de s'adapter a l'ecran utilisateurs  */
+    color: var(--var-text-color);
+}
+
+#hero button{
+   background-color: var(--var-text-color);
+   color: var(--var-text-color-dark);
+   margin-top: 1.4rem;
+   border: none;
+   padding: 0.9rem 1rem;
+   border-radius: 0.3rem;
+   font-weight: 500;
+   cursor: pointer;
+};
+
+#droite{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#droite img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* mise en forme de services  */
+
+#services {
+     margin-top: 2rem;
+}
+
+#services h2{
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--var-text-color-dark);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+#services-list{
+    display: flex;  /*  les services seront en une seule ligne  */
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
+     gap: 1rem; /* c'est pour les card en bas    */
+}
+
+#services-list #card-services{
+    flex: 1;
+    
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 5px;
+     position: relative;/*  pour permettre a l'element enfant de se positionner comme ils veulent  */
+}
+
+/* pour icon  */
+
+#card-services #icon{
+    width: 50px;
+    height: 50px;
+    background-color: #ccb6fa;
+    
+}
+
+/* mises en page de l 'album  */
+
+#album{
+    margin-top: 2rem;
+}
+
+#album h2{
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--var-text-color-dark);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* les photo si on fait flex sue les photos ca ne va pas marcher  mais grid */
+
+#album #photo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /*  il divise etposition en fonction du nombre definit  */
+    gap: 1rem;
+    
+}
+
+#photo img{
+     width: 100%; /*  prend tous l'ecran  */
+     border-radius: 5px;
+}
+
+#contact {
+    margin-top: 3rem;
+    display: flex;
+    height: calc(100vh - 200px); /*   faire un calcul prendre la taille de l'ecran - 100px  */
+    background-color: #fff;
+}
+
+#contact #partie1, #partie2{
+    flex: 1;  /*  ca veut dire qu'il auront meme taille */
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    /* position: relative; */
+    padding: 1rem;
+}
+
+#contact #partie1{
+    background-color: #ccb6fa;
+    display: flex;
+    flex-direction: column;
+     justify-content: center; /*  tous von t venir au centre  */
+    align-items: center; /*  ce qui sont dedans au milieu */
+    height: 100%;   /*  prend tout la hauteur du div  */
+}
+
+#contact h2{
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--var-text-color-dark);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+#partie2 form{
+   width: 90%;
+   margin: auto; 
+   display: flex;
+   flex-direction: column;
+}
+
+#partie2 form input, textarea{
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+    outline: none; /*  pour dire que quand on clique d'enlever la bordure qui vient sur le input  */
+    border-radius: 5px;
+    font-size: 1rem;
+     transition: 0.3s; /*  pour le focus  */
+}
+
+#partie2 form textarea{
+    height: 150px;
+}
+
+/* quand on clique sur l'input un focus  */
+#partie2 form input:focus, textarea:focus{
+    border: 1px solid var(--var-bg-color);
+    
+}
+
+#partie2 form button{
+    background: var(--var-bg-color);
+    color: var(--var-text-color);
+    border: none;
+    padding: 0.9rem 1rem;
+    border-radius: 5px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#partie2 form button:hover{
+    background-color: var(--var-bg-dark);
+    color: var(--var-secondary-color);
+    border: 1px solid var(--var-bg-color);
+}
+
+/* mise en forme du footer  */
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--var-text-color);
+    width: 100%;
+    height: 100px;
+    margin-top: 1rem;
+    font-weight: 900;
+    color: var(--var-text-color-dark);
+}
+
+#reseaux{
+     position: fixed;  /* ca reste fixer meme si on scroll  */
+     /* top: 300px; */
+     right: 0;
+     bottom: 3rem;
+     background-color: #ccb6fa;
+     padding: 10px;
+     border-radius: 2px;
+     display: flex;
+     flex-direction: column;
+     gap: 5px;
+
+}
+
+#reseaux #carte{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+/* les media queries  */
+
+@media screen and (max-width:768px) {
+    /* si l'ecran est de moins de 768px alors fait ces styles  */
+    
+}
